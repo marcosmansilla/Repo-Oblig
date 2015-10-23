@@ -1,6 +1,8 @@
 package logica;
 
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -9,15 +11,14 @@ import java.util.Date;
 public class CommonCar extends Vehicle {
     
     private short doorQuantity;
-    //enum entre gamaAlta y economico
-    
-    public CommonCar (String plate, String brand, String model, short doorQuantity, Date year, int kilometer) {
+
+    public CommonCar (String plate, String brand, String model, Date year, int kilometer, short doorQuantity) {
         super(plate, brand, model, year, kilometer);
         this.doorQuantity = doorQuantity;
     }
     
     public CommonCar (String plate, String brand) {
-        this(plate, brand, null, Short.valueOf("0"), null, 0);
+        this(plate, brand, null, null, 0, Short.valueOf("0"));
     }
     
     public short getDoorQty() {
@@ -28,4 +29,16 @@ public class CommonCar extends Vehicle {
         this.doorQuantity = doors;
     }
     
+    @Override
+    public void setType(String type) {
+        if (type.toUpperCase().trim().equals("CHEAP") || type.toUpperCase().trim().equals("EXPENSIVE")){
+            this.setType(type);
+        } else {
+            try {
+                throw new Exception("Tipo "+type+" inexistente en "+CommonCar.class.getName());
+            } catch (Exception ex) {
+                Logger.getLogger(CommonCar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }

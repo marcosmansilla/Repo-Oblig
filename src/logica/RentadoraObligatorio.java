@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 import presentacion.AltaCliente;
 import presentacion.ClientTableModel;
 import presentacion.EditCliente;
-import presentacion.GestionCliente;
+import presentacion.Inicio;
 
 
 /**
@@ -20,31 +20,12 @@ public class RentadoraObligatorio {
      */
     public static void main(String[] args) {
 
-        GestionCliente gc = new GestionCliente();
-        gc.setVisible(true);
-        
-        /*
-        AltaCliente ac = new AltaCliente();
-        ac.setVisible(true);
-        
-        EditCliente ec = new EditCliente();
-        ec.setVisible(true);
-       */
-// AltaCliente ac = new AltaCliente();
-       // ac.setVisible(true);
-        
-        /*Client mansilla = new Client(40852534, "Marcos", "Mansilla");
-        
-        mansilla.setAddress("Estivao 1891 esq. Neyra");
-        mansilla.setMail("marcos@marcos.com");
-        mansilla.setPhone("095 258839");
-        
+        Inicio init = new Inicio();
+        init.setVisible(true);        
         
         
         System.out.println(Client.documentValidator("00000000"));
-        
-        System.out.println("Cliente: "+mansilla.getAddress()+" "+mansilla.getMail()+" "+mansilla.getPhone());
-        System.out.println(mansilla.getFullName()+" cédula "+mansilla.getDocument());
+    
         
         CommonCar cc = new CommonCar("ACA 733", "Chevrolet");
         cc.setDoorQty(Short.valueOf("5"));
@@ -55,9 +36,8 @@ public class RentadoraObligatorio {
         
         
         Rental rent = new Rental();
-        rent.rentACar(mansilla, new Date(), new GregorianCalendar(2015, 11, 29).getTime(), cc, 0);
-        
-        */
+        //rent.rentACar(new Client(doc, null, null), new Date(), new GregorianCalendar(2015, 11, 29).getTime(), cc, 0);
+
         /*System.out.println("Está alquilando el cliente : " + (rent.getClient().getClientRentals().isEmpty()?"No":"Si"));
         for (Rental therent : rent.getClient().getClientRentals()) {
         //if (rent.getClient(). isRenting()) {

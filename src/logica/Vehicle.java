@@ -10,21 +10,19 @@ public abstract class Vehicle {
 
     private String plate;
     private String model;
+    private String brand;
     private Date year;
     private double pricePerDay;
     private int kilometer;
-    //private TypeOfCar typeOfCar;
-    // COMMON CAR Y UTILITY TIENEN LAS SUYAS PROPIAS...
-    public enum TypeOfCar {
-        CHEAP, EXPENSIVE
-    }
+    
     // CONSTRU
     
     public Vehicle (String plate, String brand, String model, Date year, int kilometer) {
         this.setPlate(plate);
         if (brand == null) brand = "";
         if (model == null) model = "";
-        this.setModel(brand, model);
+        this.setModel(model);
+        this.setBrand(brand);
         this.setYear(year);
         this.setKilometer(kilometer);
     }
@@ -38,8 +36,11 @@ public abstract class Vehicle {
     public void setPlate(String plate) {
         this.plate = plate;
     }    
-    public void setModel(String brand, String model) {
-        this.model = brand + " " + model;
+    public void setModel(String model) {
+        this.model = model;
+    }
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
     public void setYear(Date year) {
         this.year = year;
@@ -50,13 +51,13 @@ public abstract class Vehicle {
     public void setKilometer(int kilometer) {
         this.kilometer = kilometer;
     }
-    /*public void setType(TypeOfCar type) {
-        this.typeOfCar = type;
-    }*/
     // GETTERS
     
     public String getModel() {
         return model.trim();
+    }
+    public String getBrand() {
+        return brand.trim();
     }
     public Date getYear() {
         return year;

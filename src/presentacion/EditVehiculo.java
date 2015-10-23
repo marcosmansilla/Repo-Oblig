@@ -15,28 +15,25 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author Marcos
  */
-public class EditCliente extends javax.swing.JFrame {
+public class EditVehiculo extends javax.swing.JFrame {
 
-    ClientTableModel ctModel;
+    VehicleTableModel vtModel;
     /**
-     * Creates new form EditCliente
+     * Creates new form EditVehiculo
      */
-    public EditCliente() {
+    public EditVehiculo() {
         initComponents();
         
-        ctModel = new ClientTableModel();
-        jTableClient.setModel(ctModel);
-        jTableClient.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        jTableClient.setRowSelectionAllowed(true);
-        jTableClient.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+        vtModel = new VehicleTableModel();
+        jTableVehicle.setModel(vtModel);
+        jTableVehicle.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        jTableVehicle.setRowSelectionAllowed(true);
+        jTableVehicle.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                if (jTableClient.getSelectedRow()>0) lblSelected.setText("Fila elegida: " + jTableClient.getSelectedRow());
+                if (jTableVehicle.getSelectedRow()>0) lblSelected.setText("Fila elegida: " + jTableVehicle.getSelectedRow());
             }
         });
-        
-        
-        // TODO: continuar desde el punto ..
     }
 
     /**
@@ -49,84 +46,19 @@ public class EditCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        btnNew = new javax.swing.JButton();
-        btnDel = new javax.swing.JButton();
-        btnRefresh = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTableClient = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         lblSelected = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnDe = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
+        btnNew = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableVehicle = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
-        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
-
-        btnNew.setText("Agregar");
-        btnNew.setMaximumSize(new java.awt.Dimension(79, 23));
-        btnNew.setMinimumSize(new java.awt.Dimension(79, 23));
-        btnNew.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNewActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnNew);
-
-        btnDel.setText("Eliminar");
-        btnDel.setMaximumSize(new java.awt.Dimension(79, 23));
-        btnDel.setMinimumSize(new java.awt.Dimension(79, 23));
-        btnDel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnDel);
-
-        btnRefresh.setText("Refrescar");
-        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnRefresh);
-
-        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
-
-        jTableClient.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane2.setViewportView(jTableClient);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccionado"));
 
@@ -149,6 +81,72 @@ public class EditCliente extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, java.awt.BorderLayout.PAGE_END);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Acciones"));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.Y_AXIS));
+
+        btnDe.setText("Eliminar");
+        btnDe.setMaximumSize(new java.awt.Dimension(79, 23));
+        btnDe.setMinimumSize(new java.awt.Dimension(79, 23));
+        btnDe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDe);
+
+        btnRefresh.setText("Refrescar");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnRefresh);
+
+        btnNew.setText("Agregar ");
+        btnNew.setMaximumSize(new java.awt.Dimension(79, 23));
+        btnNew.setMinimumSize(new java.awt.Dimension(79, 23));
+        btnNew.setPreferredSize(new java.awt.Dimension(79, 23));
+        btnNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnNew);
+
+        jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_START);
+
+        jTableVehicle.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(jTableVehicle);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(jPanel3, java.awt.BorderLayout.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -163,29 +161,29 @@ public class EditCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelActionPerformed
-        if (!(jTableClient.getSelectedRows().length>0)) JOptionPane.showMessageDialog(this, "No seleccionó nada.");
+    private void btnDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeActionPerformed
+        if (!(jTableVehicle.getSelectedRows().length>0)) JOptionPane.showMessageDialog(this, "No seleccionó nada.");
         int respuesta = JOptionPane.showConfirmDialog(this, "Desea borrar la selección?", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.NO_OPTION);
         if (respuesta == JOptionPane.YES_OPTION) {
-            int[] elegidas = jTableClient.getSelectedRows();
+            int[] elegidas = jTableVehicle.getSelectedRows();
             for (int i = 0; i < elegidas.length; i++) {
-                ctModel.deleteRow(elegidas[i] - i);
+                vtModel.deleteRow(elegidas[i] - i);
             }
         }
-    }//GEN-LAST:event_btnDelActionPerformed
+    }//GEN-LAST:event_btnDeActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        ctModel.fireTableDataChanged();
+        vtModel.fireTableDataChanged();
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        AltaCliente ac = new AltaCliente();
-        ac.setVisible(true);
+        AltaVehiculo av = new AltaVehiculo();
+        av.setVisible(true);
     }//GEN-LAST:event_btnNewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDel;
+    private javax.swing.JButton btnDe;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JPanel jPanel1;
@@ -193,7 +191,7 @@ public class EditCliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableClient;
+    private javax.swing.JTable jTableVehicle;
     private javax.swing.JLabel lblSelected;
     // End of variables declaration//GEN-END:variables
 }
